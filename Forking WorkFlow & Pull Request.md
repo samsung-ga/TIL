@@ -1,9 +1,9 @@
 # Forking Workflow & Code Review 
 
-프로젝트를 fork 해와서 pr을 보내는 협업 방식에 대해 처음도 아니었지만 헤갈리는게 많았다! 그래서 이번 기회에 정리해보았다. github에는 아직 모르는 숨은 기능이 정말 많은 거 같다... Gist에 대해서도 알아보고 싶은데.. 언제쯤 다 알 수 있을까 
+프로젝트를 fork 해와서 pr을 보내는 협업 방식에 대해서 헤갈리는게 많아 이번 기회에 정리해보았다. github에는 아직 모르는 숨은 기능이 정말 많은 거 같다... 
 
-- Forking Workflow
-- Code Review
+- [Forking Workflow](#Forking-Workflow)
+- [Code Review](#Code-Review)
 
 ----
 
@@ -116,7 +116,7 @@ Labels를 통해 해당 Pull Request와 issues의 정보들을 더 명확히 해
 
 ----
 
-## PR 코멘트 달기 (Code Review)
+## Code Review
 
 이제 Pull Request는 보내졌다! 그렇다면 코드 리뷰를 달고 그 코드 리뷰를 답하는 것에 대해 알아보자. 
 
