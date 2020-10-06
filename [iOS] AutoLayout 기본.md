@@ -8,6 +8,7 @@
 - 제약조건에 대해서
   - 제약조건 알아보기
   - 직접 해보기 (Interface Builder에서 작업) 
+- 가이드에서 제공하는 오토레이아웃 규칙
 
 
 
@@ -156,3 +157,73 @@ StackView는 Constraint가 필요없이 자동으로 autolayout을 제공해줍�
 ## 직접 해보기 (Interface Builder 이용)
 
 오토레이아웃을 잡는 방식은 정말 다양해요 오토레이아웃잡기는 정말 많이 해보면서 숙달하는 것밖에 없는 것 같아요!! 정답은 없다고 가이드에 나와있으니 정말 상황에 따라서 개발자 자신이 편한 방식대로 잡으면 될 것 같네영 ㅎㅎ 일단 그 전에 어떻게 잡는 것인지 다시 한번 알아보려구 합니다.
+
+먼저, 오브젝트 라이브러리에서 원하는 뷰를 드래그하여 캔버스에 뷰를 배치합니다. 배치 할 때 Interfacer Builder는 뷰의 현재 크기와 위치를 외쪽 상단 모서리르 기준으로 정의하고 일련의 **프로토 타이핑 제약 조건**을 자동으로 생성합니다! 이 프로토 타이핑 제약 조건으로 빌드하고 실행할 수 있지만, 프로토 타이핑 제약이 있는 앱을 제공하지 말자!!! 
+
+개발자가 첫번째 제약 조건을 생성하자마자 시스템은 프로토 타이핑 제약 조건을 제거합니다. 이럴 경우 모호한 레이아웃이 되고 Xcode는 빨간색으로 경고를 줍니다. 하나하나 차근차근 제약 조건을 주면 경고가 사라집니다.
+
+### Control-Dragging Constraint 방법
+
+두 뷰 사이에서 하나를 Control를 클릭하고 다른 뷰로 끌어서 Constraint를 줄 수 있습니다. 이 방법은 뷰를 처음 배치시킬 때의 프레임을 기반으로 Interface Builder가 제약 조건을 생성합니다. 따라서 신중하게 배치해야 합니당!!!
+
+<img src="./image/controlDrag.png" alt="" />
+
+### Stack, Align, Pin, Resolve Auto Layout Issues
+
+<img src="./image/icon.png" alt="" />
+
+Xcode 하단을 보면 제약 조건을 만드는 여러가지 도구들이 있습니다. 이 도구들을 이용하여 뷰의 constraint를 만들 때는 뷰를 정확하게 배치할 필요가 없습니다. 
+
+* Stack
+
+  StackView를 빠르게 만들 수 있습니다.
+
+* Alignment
+
+  제약 조건들을 제공합니다. 일반적으로 두 개의 뷰를 선택해야 이 도구의 모든 기능을 사용할 수 있고, 하나만 선택했을 경우 수직, 수평 제약 조건만 사용할 수 있습니다. 근데 이 기능은 지금까지 개발을 하면서 사용해본 적이 없으니 자세히 안 들어가겠습니다..
+
+* Pin
+
+  핀 도구는 정말정말 많이 사용합니다. 뷰의 위치와 크기를 빠르게 정의할 수 있습니다. 
+
+  이 도구내에 Constrain to margins라는 체크 항목은 수퍼 뷰에 대한 제한이 수퍼 뷰의 여백 또는 해당 가장자리를 사용하는지 여부를 결정합니다.
+
+* Resolve Auto Layout Issues
+
+  일반적인 자동 레이아웃 문제를 해결하기 위한 여러 옵션을 제공합니다. 메뉴 상단의 옵션은 현재 선택된 보기에만 영향을 주고, 하단 옵션은 전체 뷰에 영향을 줍니다. 
+
+  Interface Builder가 제약을 생성하도록 하는 방법은 이 도구를 이용하는 것입니다.일단 캔버스에 뷰를 신중하게 배치한 후, Resolve Auto Layout Issues 도구 -> Reset to Suggested Constraints 를 클릭하면 됩니다.
+
+### 문서 개열에서 제약 조건 나열
+
+[여기](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithConstraintsinInterfaceBuidler.html#//apple_ref/doc/uid/TP40010853-CH10-SW1)
+
+### Size Inspecter에서 Constraint 찾기
+
+이것도 자주 쓴다!
+
+### iOS 전용 기능
+
+이건 지금 이해가 되지 않으니.. 일단 패스!!
+
+## 가이드가 제공하는 규칙
+
+여러가지 있는데 내가 새길 것들만 몇 가지 적어 본다.
+
+- 가능한 경우엔 StackView 사용 : StackView는 오토레이아웃 제약 논리를 단순화시키기 때문
+
+- 뷰와 가장 가까운 이웃 사이에 Constraint 적용
+
+- View의 높이와 너비를 고정시키지 마라!
+
+- Constraint를 설정하는데 문제가 생기면 아래 도구를 사용해라!
+
+- View의 프레임이 자동으로 업데이트 될 때 주의해라! 크기와 위치를 지정할 수 있는 Constraint가 충분하지 않는 경우, 화면 밖으로 배치되는 경우가 많다.
+
+- 모든 View에 이름이 있는지 확인! 이러면 도구를 이용할 때 식별이 편하다.
+
+- 프로그래밍 방식으로 뷰를 인스턴스화 할 때는 `translatesAutoresizingMaskIntoConstraints`속성을 false로 설정해야 합니다. 기본적으로 시스템은 뷰의 프레임과 자동 크기 조정 카스크를 기반으로 제약 조건을 자동으로 생성하기 때문에 이 제약조건들과 직접 준 제약조건들이 충돌합니다. 
+
+- OS와 iOS의 레이아웃은 다르게 계산합니다.
+
+  
