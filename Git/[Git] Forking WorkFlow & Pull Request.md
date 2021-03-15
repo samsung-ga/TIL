@@ -1,6 +1,6 @@
 # Forking Workflow & Code Review 
 
-프로젝트를 fork 해와서 pr을 보내는 협업 방식에 대해서 헤갈리는게 많아 이번 기회에 정리해보았다. github에는 아직 모르는 숨은 기능이 정말 많은 거 같다... 
+프로젝트를 fork 해와서 pr을 보내는 협업 방식에 대해서 헷갈리는게 많아 이번 기회에 정리해보았다. github에는 아직 모르는 숨은 기능이 정말 많은 거 같다... 
 
 - [Forking Workflow](#Forking-Workflow)
 - [Code Review](#Code-Review)
