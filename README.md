@@ -6,6 +6,6 @@
 
 - [(Swift) Union-Find](https://victorqi.gitbooks.io/swift-algorithm/content/union-find.html)
 
-## 아키텍처
+## 디자인 패턴
 
 - [Coordinator Pattern](https://duwjdtn11.tistory.com/644)
