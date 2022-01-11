@@ -9,3 +9,5 @@
 ## 디자인 패턴
 
 - [Coordinator Pattern](https://duwjdtn11.tistory.com/644)
+- [Coordinator pattern with Tab Bar Controller](https://somevitalyz123.medium.com/coordinator-pattern-with-tab-bar-controller-33e08d39d7d)
+- [Coordinators Redux](https://khanlou.com/2015/10/coordinators-redux/)
